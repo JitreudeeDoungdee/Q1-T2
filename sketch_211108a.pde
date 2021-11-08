@@ -2,24 +2,33 @@ void setup(){
   size(500,500);
   background(200);
 }
+int Ate = 0;
 float speed = 2;
 float Drop = 0;
 boolean Die = false;
 float RandX = 250;
+
+
 void draw(){
   background(200);
   float poX= mouseX,poY=mouseY;
   fill(255);
   ellipse(poX,poY,50,50);
+  fill(0);
+  textSize(25);
+  text(Ate,poX,poY);
   food();
   if(poX+25>RandX-10 || poX-25>RandX+10){
     if(poY+25>Drop-10 || poY-25>Drop+10){
       Die = true;
+      Ate += 1;
       background(200);
       food();
     }
   }
 }
+
+
 void food(){
   if(Drop<height-10 || Die == true){
     if(Die == true){
