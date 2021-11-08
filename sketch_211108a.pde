@@ -12,6 +12,13 @@ void draw(){
   fill(255);
   ellipse(poX,poY,50,50);
   food();
+  if(poX+25>RandX-10 || poX-25>RandX+10){
+    if(poY+25>Drop-10 || poY-25>Drop+10){
+      Die = true;
+      background(200);
+      food();
+    }
+  }
 }
 void food(){
   if(Drop<height-10 || Die == true){
